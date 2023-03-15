@@ -26,11 +26,15 @@ def run():
         print("Não consegui abrir a câmera!")
         exit()
 
-    # Esse loop é igual a um loop de jogo: ele encerra quando apertamos 'q' no teclado.
-    R = np.array([[np.sqrt(2), -np.sqrt(2), 0], [np.sqrt(2), np.sqrt(2), 0], [0, 0,1]])
-    rotation = R
-    T = np.array([[1, 0, -width/2], [0, 1, -height/2], [0, 0, 1]])
 
+    cos15 = (np.sqrt(6)+np.sqrt(2))/4
+    sin15 = (np.sqrt(6)-np.sqrt(2))/4
+
+    # Esse loop é igual a um loop de jogo: ele encerra quando apertamos 'q' no teclado.
+    R = np.array([[cos15, -sin15, 0], [sin15, cos15, 0], [0, 0,1]])
+    rotation = R
+    T = np.array([[1, 0, -height/2], [0, 1, -width/2], [0, 0, 1]])
+    print(np.sqrt(2))
 
 
     while True:
