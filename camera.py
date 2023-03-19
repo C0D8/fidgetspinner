@@ -64,7 +64,7 @@ def run():
         Xd = criar_indices(0, height, 0, width)
         Xd = np.vstack ( (Xd, np.ones( Xd.shape[1]) ) )
 
-        # Aqui criamos uma matriz concatenando algumas transformações: translação para centralizar a imagem no eixo 0,0 para assim realizar a rotação e depois trasladar a imagem para a posição inicial. 
+        # Aqui criamos uma matriz concatenando algumas transformações: translação para centralizar a imagem no eixo 0,0 para assim realizar a rotação e depois trasladar a imagem para a posição inicial.  Fazemos isso porque a operação de rotação acontece levando como centro o ponto 0,0.
         C = np.linalg.inv(T) @ rotation @ T
 
 
