@@ -57,6 +57,7 @@ def run():
 
         Xd = criar_indices(0, height, 0, width)
         Xd = np.vstack ( (Xd, np.ones( Xd.shape[1]) ) )
+        print(Xd.shape, image_.shape)
 
         C = np.linalg.inv(T) @ rotation @ T
 
