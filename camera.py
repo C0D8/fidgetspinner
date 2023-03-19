@@ -36,7 +36,6 @@ def run():
     rotation = np.array([[1,0,0],[0,1,0],[0,0,1]])
 
     T = np.array([[1, 0, -height/2], [0, 1, -width/2], [0, 0, 1]])
-    print(np.sqrt(2))
 
     
     while True:
@@ -59,7 +58,6 @@ def run():
 
         Xd = criar_indices(0, height, 0, width)
         Xd = np.vstack ( (Xd, np.ones( Xd.shape[1]) ) )
-        print(Xd.shape, image_.shape)
 
         C = np.linalg.inv(T) @ rotation @ T
 
