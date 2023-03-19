@@ -33,6 +33,8 @@ def run():
     # Esse loop é igual a um loop de jogo: ele encerra quando apertamos 'q' no teclado.
     R = np.array([[cos15, -sin15, 0], [sin15, cos15, 0], [0, 0,1]])
     R_left = np.array([[cos15, sin15, 0], [-sin15, cos15, 0], [0, 0,1]])
+    m = np.array([[0.9,0,0],[0,1,0],[0,0,1]])
+    M = np.array([[1.1,0,0],[0,1,0],[0,0,1]])
     rotation = np.array([[1,0,0],[0,1,0],[0,0,1]])
 
     T = np.array([[1, 0, -height/2], [0, 1, -width/2], [0, 0, 1]])
@@ -75,14 +77,24 @@ def run():
         # Agora, mostrar a imagem na tela!
         cv.imshow('Minha Imagem!', image_)
 
-        if cv.waitKey(1) == ord('d'):
+        if cv.waitKey(50) == ord('d'):
             rotation = R @ rotation
         
-        if cv.waitKey(1) == ord('a'):
+        if cv.waitKey(50) == ord('a'):
             rotation = R_left @ rotation
         
+        if cv.waitKey(50) == ord('w'):
+            rotation = M @ rotation
+        
+        if cv.waitKey(50) == ord('s'):
+            rotation = m @ rotation
+        
+        if cv.waitKey(50) == ord('v'):
+            rotation = np.array([[1,0,0],[0,1,0],[0,0,1]])
+    
+        
         # Se aperto 'q', encerro o loop
-        if cv.waitKey(1) == ord('q'):
+        if cv.waitKey(50) == ord('q'):
             break
 
     # Ao sair do loop, vamos devolver cuidadosamente os recursos ao sistema!
