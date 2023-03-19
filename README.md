@@ -17,7 +17,7 @@
 - Ao clicar no botão 'v' a câmera é voltada a seu estado inicial.
 - Ao clicar no botão 'q' a câmera é finalizada.
 
-### Contamos ainda com um arquivo exemplo.py que quando executado demonstra com exemplos de curta duração, cada uma das transformações desenvolvidas.
+#### Contamos ainda com um arquivo exemplo.py que quando executado demonstra com exemplos de curta duração, cada uma das transformações desenvolvidas.
 
 ### Modelo matemático :
 
