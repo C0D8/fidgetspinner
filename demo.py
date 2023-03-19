@@ -41,7 +41,7 @@ def run():
     T = np.array([[1, 0, -height/2], [0, 1, -width/2], [0, 0, 1]])
 
 
-    giro_r = False
+    giro_r = True
     giro_l = False
     aumentar = False
     diminuir = False
