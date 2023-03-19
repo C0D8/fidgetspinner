@@ -9,13 +9,13 @@ Para fazer as transformações apresentadas no programa utilizamos de alguns con
 
 #### Rotação :
 
-para realizar a rotação, utilizamos uma matriz rotação de $$\theta$$° que possui sua forma canônica :
+para realizar a rotação, utilizamos uma matriz rotação de θ° que possui sua forma canônica :
 
 $$
 R = 
 \begin{bmatrix}
     \cos(\theta) & -\sin(\theta) \\
-    \cos(\theta) & \sen(\theta)  \\
+    \cos(\theta) & \sin(\theta)  \\
 \end{bmatrix}
 $$
 
