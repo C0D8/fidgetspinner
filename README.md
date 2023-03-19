@@ -2,6 +2,23 @@
 ![Fidgetspinner (1)](https://user-images.githubusercontent.com/105286051/226206072-7c5bc9c4-0bad-497e-92ae-743de80fc841.gif)
 
 
+
+### Utilização :
+
+1. Clone o repositório 
+2. Abra um novo terminal e instale os requisitos com 'pip install -r requirements.txt'
+
+#### No arquivo demo.py é possível ter acesso as funcionalidades. Ao executar o arquivo a câmera será aberta em seu computador e as operações poderam ser realizadas:
+
+- Ao pressionar o botão 'd' a câmera é rotacionada a direita.
+- Ao pressionar o botão 'a' a câmera é rotacionada a esquerda.
+- Ao pressionar o botão 'w' a câmera é expandida em altura.
+- Ao pressionar o botão 's' a câmera é contraída em altura.
+- Ao pressionar o botão 'v' a câmera é voltada a seu estado inicial.
+- Ao pressionar o botão 'q' a câmera é finalizada.
+
+### Contamos ainda com um arquivo exemplo.py que quando executado demonstra com exemplos de curta duração, cada uma das transformações desenvolvidas.
+
 ### Modelo matemático :
 
 Para fazer as transformações apresentadas no programa utilizamos de alguns conceitos de trasformação de matrizes que serão explicitados a seguir:
