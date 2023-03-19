@@ -10,14 +10,14 @@
 
 #### No arquivo demo.py é possível ter acesso as funcionalidades. Ao executar o arquivo a câmera será aberta em seu computador e as operações poderam ser realizadas:
 
-- Ao pressionar o botão 'd' a câmera é rotacionada a direita.
-- Ao pressionar o botão 'a' a câmera é rotacionada a esquerda.
-- Ao pressionar o botão 'w' a câmera é expandida em altura.
-- Ao pressionar o botão 's' a câmera é contraída em altura.
-- Ao pressionar o botão 'v' a câmera é voltada a seu estado inicial.
-- Ao pressionar o botão 'q' a câmera é finalizada.
+- Ao clicar no botão 'd' a câmera é rotacionada a direita.
+- Ao clicar no botão 'a' a câmera é rotacionada a esquerda.
+- Ao clicar no botão 'w' a câmera é expandida em altura.
+- Ao clicar no botão 's' a câmera é contraída em altura.
+- Ao clicar no botão 'v' a câmera é voltada a seu estado inicial.
+- Ao clicar no botão 'q' a câmera é finalizada.
 
-### Contamos ainda com um arquivo exemplo.py que quando executado demonstra com exemplos de curta duração, cada uma das transformações desenvolvidas.
+#### Contamos ainda com um arquivo exemplo.py que quando executado demonstra com exemplos de curta duração, cada uma das transformações desenvolvidas.
 
 ### Modelo matemático :
 
