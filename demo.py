@@ -12,6 +12,8 @@ def criar_indices(min_i, max_i, min_j, max_j):
     idx = np.vstack( (idx_i, idx_j) )
     return idx
 
+
+
 def run():
     # Essa função abre a câmera. Depois desta linha, a luz de câmera (se seu computador tiver) deve ligar.
     cap = cv.VideoCapture(0)
@@ -38,6 +40,11 @@ def run():
 
     T = np.array([[1, 0, -height/2], [0, 1, -width/2], [0, 0, 1]])
 
+
+    giro_r = False
+    giro_l = False
+    aumentar = False
+    diminuir = False
     
     # Esse loop é igual a um loop de jogo: ele encerra quando apertamos 'q' no teclado.
     while True:
@@ -84,22 +91,37 @@ def run():
         if wk:
             #rotação no sentido antihorário
             if wk == ord('d'):
-                rotation = R @ rotation
+
+                giro_r, giro_l = True, False
             #rotação sentido horário
             elif wk == ord('a'):
-                rotation = R_left @ rotation
+                giro_r, giro_l = False, True
             #expansão 
             elif wk == ord('w'):
-                rotation = M @ rotation
+                aumentar, diminuir = True, False
             #contração
             elif wk == ord('s'):
-                rotation = m @ rotation
+                aumentar, diminuir = False, True
+
+            elif wk == ord('f'):
+                giro_r,giro_l = False, False
+                aumentar, diminuir = False, False
             #voltar para a imagem original
             elif wk == ord('v'):
                 rotation = np.array([[1,0,0],[0,1,0],[0,0,1]])
             # Se aperto 'q', encerro o loop
             elif wk == ord('q'):
                 break
+
+            if giro_r :
+                rotation = R @ rotation
+            elif giro_l :
+                rotation = R_left @ rotation
+            if aumentar:
+                rotation = M @ rotation
+            elif diminuir:
+                rotation = m @ rotation
+            
     
     # Ao sair do loop, vamos devolver cuidadosamente os recursos ao sistema!
     cap.release()
