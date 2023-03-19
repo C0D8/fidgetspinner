@@ -61,6 +61,7 @@ def run():
         Xd = criar_indices(0, height, 0, width)
         Xd = np.vstack ( (Xd, np.ones( Xd.shape[1]) ) )
 
+        # Aqui aplicamos uma translação para centralizar a imagem no eixo 0,0 para assim realizar a rotação e depois trasladar a imagem para a posição inicial. 
         C = np.linalg.inv(T) @ rotation @ T
 
         X = np.linalg.inv(C) @ Xd
