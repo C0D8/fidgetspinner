@@ -40,7 +40,9 @@ def run():
 
     T = np.array([[1, 0, -height/2], [0, 1, -width/2], [0, 0, 1]])
 
+    
 
+    # Variaveis para controlar as transformações da imagem com interação com o teclado
     giro_r = True
     giro_l = False
     aumentar = False
@@ -63,22 +65,30 @@ def run():
         # A variável image é um np.array com shape=(width, height, colors)
         image = np.array(frame).astype(float)/255
 
+        #Aqui criamos um array com o shape da variavel image mas com zero em todas as posições para poder plotar nossa imagem final.
         image_ = np.zeros_like(image)
 
+        #Aqui criamos os destinos dos pontos que desejamos, fazemos isso para ajudar posteriormente a fazer a operação inversa e eliminar os glitchs da imagem final.
         Xd = criar_indices(0, height, 0, width)
         Xd = np.vstack ( (Xd, np.ones( Xd.shape[1]) ) )
 
-        # Aqui aplicamos uma translação para centralizar a imagem no eixo 0,0 para assim realizar a rotação e depois trasladar a imagem para a posição inicial. 
+        # Aqui criamos uma matriz concatenando algumas transformações: translação para centralizar a imagem no eixo 0,0 para assim realizar a rotação e depois trasladar a imagem para a posição inicial.  
+        # Fazemos isso porque a operação de rotação acontece levando como centro o ponto 0,0.
         C = np.linalg.inv(T) @ rotation @ T
 
+        #Aqui selecionamos os pixels da origem da nossa imagem final realizando a operação inversa anteriomente comentada.
         X = np.linalg.inv(C) @ Xd
 
+        #Aplicamos um filtro para eliminar os pixels que eventualmente saiam do quadro da nossa imagem.
         filtro = (X[0,:] >= 0) & (X[0,:] < image_.shape[0]-1) & (X[1,:] >= 0) & (X[1,:] < image_.shape[1]-1)
         Xd = Xd[:, filtro]
-        X = X[:,filtro]         
+        X = X[:,filtro]    
+        # Transformamos os resultados em inteiros já que estamos trabalhando com intervalos discretos, não eciste meio pixel.          
         Xd = Xd.astype(int)
         X = X.astype(int)
 
+
+        #Aqui fazemos a "transposição" dos pixels que selecionamos da iamgem de origem para a imagem de destino. 
         image_[Xd[0,:], Xd[1,:], :] = image[X[0,:], X[1,:], :]
 
         #Agora, mostrar a imagem na tela!
@@ -92,17 +102,22 @@ def run():
             #rotação no sentido antihorário
             if wk == ord('d'):
 
+                #Atualização das variaveis de giro
                 giro_r, giro_l = True, False
             #rotação sentido horário
             elif wk == ord('a'):
+                #Atualização das variaveis de giro
                 giro_r, giro_l = False, True
             #expansão 
             elif wk == ord('w'):
+                #Atualização das variaveis de contração e expansão
                 aumentar, diminuir = True, False
             #contração
             elif wk == ord('s'):
+                #Atualização das variaveis de contração e expansão
                 aumentar, diminuir = False, True
 
+            #Atualiza todas as variaveis de controle para parar as operações
             elif wk == ord('f'):
                 giro_r,giro_l = False, False
                 aumentar, diminuir = False, False
@@ -113,6 +128,8 @@ def run():
             elif wk == ord('q'):
                 break
 
+
+            # Condições para aplicar cada operação;
             if giro_r :
                 rotation = R @ rotation
             elif giro_l :
