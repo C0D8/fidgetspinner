@@ -48,7 +48,6 @@ def run():
             R = np.array([[0.99,0,0],[0,1,0],[0,0,1]])
         else:
             contador = 0
-        print(contador)
         # Captura um frame da câmera
         ret, frame = cap.read()
         # A variável `ret` indica se conseguimos capturar um frame
