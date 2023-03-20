@@ -10,11 +10,12 @@
 
 #### No arquivo demo.py é possível ter acesso as funcionalidades. Ao executar o arquivo a câmera será aberta em seu computador e as operações poderam ser realizadas:
 
-- Ao clicar no botão 'd' a câmera é rotacionada a direita.
-- Ao clicar no botão 'a' a câmera é rotacionada a esquerda.
-- Ao clicar no botão 'w' a câmera é expandida em altura.
-- Ao clicar no botão 's' a câmera é contraída em altura.
-- Ao clicar no botão 'v' a câmera é voltada a seu estado inicial.
+- Ao clicar no botão 'd' a câmera começa a rotacionar para direita.
+- Ao clicar no botão 'a' a câmera começa a rotacionar para esquerda.
+- Ao clicar no botão 'w' a câmera começa a expandir a imagem no eixo y.
+- Ao clicar no botão 's' a câmera começa a contrair a imagem no eixo y.
+- Ao clicar no botão 'f' a câmera finaliza todos processos de transformação de imagem.
+- Ao clicar no botão 'v' a matrix de rotação é voltada a seu estado inicial (caso o botão f tenha sido apertado, a câmera volta ao estado padrão).
 - Ao clicar no botão 'q' a câmera é finalizada.
 
 #### Contamos ainda com um arquivo exemplo.py que quando executado demonstra com exemplos de curta duração, cada uma das transformações desenvolvidas.
@@ -37,13 +38,6 @@ R =
 $$
 
 que gira a imagem para o sentido anti horário. Já para fazer a rotação para o sentido horário utilizamos a matriz inversa dessa, que realiza a mesma operação mas no sentido contrário. 
-
-
-
-
-
-
-
 
 #### Expansão : 
 
@@ -73,8 +67,6 @@ $$
 
 
 Dessa forma, todas as transformações poderiam ficar em forma de multiplicação de matrizes o que permitiria concatenar diversas operações em uma matriz só, o que facilita muito ma hora de representar.
-
-
 
 
 
